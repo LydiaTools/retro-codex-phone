@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="retro-token" content="RETRO_TOKEN_PLACEHOLDER"><title>Retro Codex Phone</title>
+<link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<main>
+ <header><div><h1>Retro Codex Phone</h1><p>Your handset. Your project. Your choice of AI.</p></div><span id="status" role="status">Connecting…</span></header>
+ <div class="console">
+  <section class="line" aria-label="Phone controls">
+   <div class="handset" aria-hidden="true"><svg viewBox="0 0 240 120"><path d="M46 23c15-7 31-9 44-3l-4 30c-12 0-20-1-28-4-11 16-6 28 9 33 25 8 67 8 94 0 16-5 20-17 9-33-8 3-16 4-28 4l-4-30c13-6 29-4 44 3 22 11 37 53 27 73-14 25-161 25-178 1C18 78 24 35 46 23Z"/></svg></div>
+   <label for="agent">Connect to</label>
+   <select id="agent"><option value="codex">Codex</option><option value="claude">Claude Code</option></select>
+   <p id="agentStatus" class="hint"></p>
+   <label for="workspace">Project folder</label><input id="workspace" placeholder="Full path to your project" spellcheck="false">
+   <label class="check"><input type="checkbox" id="allowEdits"> Allow edits in this project</label>
+   <p class="hint">Off: ask and review. On: the agent may change files using its normal permissions.</p>
+   <hr>
+   <div class="row"><label for="microphone">Microphone</label><button id="refreshDevices" class="small">Find microphones</button></div>
+   <select id="microphone"><option value="default">System default</option></select>
+   <button id="prepare" class="full">Prepare local voice</button>
+   <p id="voiceStatus" class="hint">First use downloads the Whisper base model. Audio stays on this computer.</p>
+   <hr>
+   <div class="row"><h2>Phone buttons</h2><button id="buttons" class="small">Enable</button></div>
+   <label class="check"><input type="checkbox" id="testButtons" checked> Test buttons without sending</label>
+   <p id="buttonStatus" class="hint">Off. A wired microphone and media buttons are separate capabilities.</p>
+   <p id="observed" class="keys">No buttons detected yet</p>
+   <div class="legend"><span>Double tap ⏯<br><b>Record / stop</b></span><span>＋<br><b>Send</b></span><span>−<br><b>Backspace</b></span></div>
+  </section>
+  <section class="conversation" aria-label="Prompt and reply">
+   <div class="row"><h2>Say what you want to build.</h2><label class="file">Import WAV<input id="audioFile" type="file" accept="audio/wav,.wav"></label></div>
+   <label for="prompt" class="sr">Editable voice transcript</label><textarea id="prompt" placeholder="Record a prompt through your handset, or type here. Review it before sending." spellcheck="false"></textarea>
+   <div class="controls"><button id="record" class="record">● Record</button><button id="send" class="send">＋ Send</button><button id="backspace">− Backspace</button><button id="clear">Clear</button></div>
+   <p class="hint">Sending shares this text with the selected AI provider through your own CLI login.</p>
+   <p id="error" class="error" role="alert"></p>
+   <div class="row"><h2>Reply</h2><div><button id="speak" class="small">Read reply</button><button id="cancel" class="small">Stop task</button></div></div>
+   <pre id="reply">Choose a project folder and send your first prompt.</pre>
+   <footer><a href="https://github.com/lydiahub19921013/retro-codex-phone" target="_blank" rel="noreferrer">Source & setup guide</a><span>Runs only while this console is open.</span></footer>
+  </section>
+ </div>
+</main>
+</body></html>

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+models/
+recordings/
+*.wav
+*.mp4
+*.mov
+native/MediaButtons
+dist/
+build/
+private-evidence/
