@@ -6,6 +6,8 @@ A small local console that turns a USB or headset-style telephone handset into a
 
 [Download the starter ZIP](https://github.com/lydiahub19921013/retro-codex-phone/releases/latest) · [Setup guide](docs/SETUP.md) · [中文说明](docs/README.zh.md)
 
+[Watch the studio phone experiment](https://www.youtube.com/watch?v=wqmpUhXXg7o) · [Software checks](https://github.com/lydiahub19921013/retro-codex-phone/actions/runs/36457308846)
+
 ![The working local console](docs/console.png)
 
 ## What you get
