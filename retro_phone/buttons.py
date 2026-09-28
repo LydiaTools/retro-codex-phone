@@ -81,7 +81,18 @@ class PhoneButtons:
         user.SetWindowsHookExW.restype = wintypes.HHOOK
         user.CallNextHookEx.argtypes = [wintypes.HHOOK, ctypes.c_int, wintypes.WPARAM, wintypes.LPARAM]
         user.CallNextHookEx.restype = pointer
+        user.UnhookWindowsHookEx.argtypes = [wintypes.HHOOK]
+        user.UnhookWindowsHookEx.restype = wintypes.BOOL
+        user.PostThreadMessageW.argtypes = [wintypes.DWORD, wintypes.UINT, wintypes.WPARAM, wintypes.LPARAM]
+        user.PostThreadMessageW.restype = wintypes.BOOL
+        user.GetMessageW.argtypes = [ctypes.POINTER(wintypes.MSG), wintypes.HWND, wintypes.UINT, wintypes.UINT]
+        user.GetMessageW.restype = wintypes.BOOL
+        user.TranslateMessage.argtypes = [ctypes.POINTER(wintypes.MSG)]
+        user.DispatchMessageW.argtypes = [ctypes.POINTER(wintypes.MSG)]
+        user.DispatchMessageW.restype = pointer
+        kernel.GetModuleHandleW.argtypes = [wintypes.LPCWSTR]
         kernel.GetModuleHandleW.restype = wintypes.HMODULE
+        kernel.GetCurrentThreadId.restype = wintypes.DWORD
         held = set()
         keys = {0xB3: 'play', 0xAF: 'up', 0xAE: 'down'}
 
