@@ -82,6 +82,10 @@ class Console:
 
 def handler(console, root):
     class Handler(BaseHTTPRequestHandler):
+        def setup(self):
+            super().setup()
+            self.connection.settimeout(10)
+
         def log_message(self, *_):
             pass
 
@@ -93,6 +97,7 @@ def handler(console, root):
             data = json.dumps(value).encode()
             self.send_response(code)
             self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(data)))
             self.send_header('Cache-Control', 'no-store')
             self.end_headers()
             self.wfile.write(data)
@@ -124,6 +129,7 @@ def handler(console, root):
                 data = data.replace(b'RETRO_TOKEN_PLACEHOLDER', console.token.encode())
             self.send_response(200)
             self.send_header('Content-Type', mime + '; charset=utf-8')
+            self.send_header('Content-Length', str(len(data)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('Content-Security-Policy', "default-src 'self'; connect-src 'self'; media-src 'self' blob:; style-src 'self'; script-src 'self'; frame-ancestors 'none'")
             self.send_header('X-Content-Type-Options', 'nosniff')
@@ -134,6 +140,14 @@ def handler(console, root):
             origin = self.headers.get('Origin')
             allowed = [f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}']
             if not self.valid_host() or (origin and origin not in allowed) or not secrets.compare_digest(self.headers.get('X-Retro-Token', ''), console.token):
+                # Drain only small rejected requests. Closing a socket with an
+                # unread body can reset it before macOS clients read the 403.
+                try:
+                    rejected_size = int(self.headers.get('Content-Length', '0'))
+                    if 0 < rejected_size <= 64000:
+                        self.rfile.read(rejected_size)
+                except (ValueError, OSError):
+                    pass
                 return self.send({'error': 'This action must come from the local console.'}, 403)
             try:
                 size = int(self.headers.get('Content-Length', '0'))

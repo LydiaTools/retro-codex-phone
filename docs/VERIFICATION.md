@@ -1,4 +1,4 @@
-# Verification for v0.1.0
+# Verification for v0.1.1
 
 Checked on 2026-09-29. This is an experimental source release, not a claim of universal handset support.
 
