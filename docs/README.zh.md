@@ -14,7 +14,7 @@
 
 ## 开始
 
-安装 Python 3.11 以上版本，以及已登录的 Codex CLI 或 Claude Code。下载 [Release ZIP](https://github.com/lydiahub19921013/retro-codex-phone/releases/latest)，解压后使用对应系统启动脚本，或按主 README 的命令运行。
+安装 Python 3.11 以上版本，以及已登录的 Codex CLI 或 Claude Code。下载 [Release ZIP](https://github.com/LydiaTools/retro-codex-phone/releases/latest)，解压后使用对应系统启动脚本，或按主 README 的命令运行。
 
 1. 接上听筒，在系统声音设置验证它是输入设备。
 2. 打开 `http://127.0.0.1:8768`，选择现有项目目录。

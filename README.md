@@ -4,9 +4,9 @@
 
 A small local console that turns a USB or headset-style telephone handset into a voice controller for **Codex CLI or Claude Code**. Audio is transcribed locally; your reviewed prompt is sent through your own agent login. No private API, app modification, or always-on recording.
 
-[Download the starter ZIP](https://github.com/lydiahub19921013/retro-codex-phone/releases/latest) · [Setup guide](docs/SETUP.md) · [中文说明](docs/README.zh.md)
+[Download the starter ZIP](https://github.com/LydiaTools/retro-codex-phone/releases/latest) · [Setup guide](docs/SETUP.md) · [中文说明](docs/README.zh.md)
 
-[Watch the studio phone experiment](https://www.youtube.com/watch?v=wqmpUhXXg7o) · [Software checks](https://github.com/lydiahub19921013/retro-codex-phone/actions/runs/36457308846)
+[Watch the studio phone experiment](https://www.youtube.com/watch?v=wqmpUhXXg7o) · [Software checks](https://github.com/LydiaTools/retro-codex-phone/actions/runs/36457308846)
 
 ![The working local console](docs/console.png)
 
@@ -19,14 +19,14 @@ A small local console that turns a USB or headset-style telephone handset into a
 - See the agent reply in the console, stop a task, or read its reply aloud through your system output device.
 - Read-only/plan mode by default. File editing is a separate, visible opt-in.
 
-If this helps your workflow, a **Star** helps other handset tinkerers find it. Follow [LydiaHub](https://github.com/lydiahub19921013) for the next experiments. Useful bug reports and hardware compatibility notes are welcome too.
+If this helps your workflow, a **Star** helps other handset tinkerers find it. Follow [LydiaHub](https://github.com/LydiaTools) for the next experiments. Useful bug reports and hardware compatibility notes are welcome too.
 
 ## Quickstart
 
 Requires **Python 3.11+**, Chrome/Edge or another browser with microphone capture, and one signed-in coding CLI. The voice model is downloaded only when you click **Prepare local voice**. The default Whisper base model is roughly 145 MB; the ZIP does not include models.
 
 ```sh
-git clone https://github.com/lydiahub19921013/retro-codex-phone.git
+git clone https://github.com/LydiaTools/retro-codex-phone.git
 cd retro-codex-phone
 python3 -m venv .venv
 # macOS / Linux:
